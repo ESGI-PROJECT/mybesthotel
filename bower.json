@@ -9,7 +9,11 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "app/vendor/",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "page": "visionmedia/page.js#^1.6.4"
+  }
 }
