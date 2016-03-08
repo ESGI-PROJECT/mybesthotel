@@ -68,4 +68,24 @@
   // Your custom JavaScript goes here
   window.app = {};
   var app = window.app;
+
+  //LISTENER APP
+  function openCategory(e, detail) {
+    getEvents();
+  }
+
+  function getEvents() {
+    $.getJSON("../events.json", function(data){
+      var events = data.events;
+      for(var i = 0 ; i < Object.keys(events).length; i++) {
+        //get event data
+        var participants = events[i].participants;
+        for(var j = 0 ; j < Object.keys(participants).length; j++) {
+          //get participant data
+        }
+      }
+    });
+  }
+
+  $(".category").click(openCategory);
 })();

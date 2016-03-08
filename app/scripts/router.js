@@ -19,6 +19,16 @@
       app.params = {};
     });
 
+    page('/events', function() {
+      app.route = 'events';
+      app.params = {};
+    });
+
+    page('/events/{category}', function() {
+      app.route = 'event';
+      app.params = {};
+    });
+
     // Route example
     // page('/...', function() {
     //   app.route = '...';
