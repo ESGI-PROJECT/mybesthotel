@@ -1,0 +1,19 @@
+{
+  "name": "BetweenUs",
+  "description": "BW Social Network",
+  "version": "0.0.1",
+  "repository": "gulpjs/gulp",
+  "tags": [
+    "build",
+    "stream",
+    "system",
+    "make",
+    "tool",
+    "asset",
+    "pipeline"
+  ],
+  "devDependencies": {
+    "gulp-webserver": "^0.9.1"
+  },
+  "license": "MIT"
+}
