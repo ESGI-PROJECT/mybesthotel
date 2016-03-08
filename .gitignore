@@ -2,3 +2,5 @@ node_modules
 dist/
 .tmp
 app.yaml
+app/vendor/
+npm-debug.log

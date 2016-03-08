@@ -66,4 +66,6 @@
   }
 
   // Your custom JavaScript goes here
+  window.app = {};
+  var app = window.app;
 })();
