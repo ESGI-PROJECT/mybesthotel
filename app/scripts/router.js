@@ -2,12 +2,15 @@
 (function (window, document) {
 	console.info('Router is loaded !');
 	var app = window.app || {};
-		app.baseUrl = '/';
-		app.route 	= 'index';
+			app.baseUrl = '/';
+			app.route 	= 'index';
 
     if (window.location.port === '') {  // if production
       page.base(app.baseUrl.replace(/\/$/, ''));
     }
+
+  	// Create a custom event to fire when the route changed
+  	var event = new CustomEvent('routeChanged', { 'detail': {} });
 
     page(app.baseUrl, function() {
 	  app.route = 'index';
@@ -23,13 +26,16 @@
     // page('/...', function() {
     //   app.route = '...';
     //   app.params = {};
+    //   
+    //   Add your custom data to the event detail object
+    //   event.detail['...'] = ...;
+    //   document.dispatchEvent(event);
     // });
 
     // 404
     page('*', function() {
-      // app.$.message.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
-      // app.$.message.show();
       page.redirect(app.baseUrl);
+      console.error('Error : Can\'t find: ' + window.location.href  + '. Redirected you to Home Page');
     });
 
     // add #! before urls

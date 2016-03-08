@@ -68,4 +68,10 @@
   // Your custom JavaScript goes here
   window.app = {};
   var app = window.app;
+  		app.version = "0.0.1";
+
+  document.addEventListener('routeChanged', function (e) {
+  	console.log("Route have changed !");
+  	console.log('New route : ' + app.route);
+  });
 })();
