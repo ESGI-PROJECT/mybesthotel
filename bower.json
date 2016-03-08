@@ -1,0 +1,15 @@
+{
+  "name": "BetweenUs",
+  "description": "BW Social Network",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/ESGIDIW-22/mybesthotel",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
