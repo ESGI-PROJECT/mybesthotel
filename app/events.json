@@ -1,0 +1,51 @@
+{
+    "events": [{
+        "name": "Journée DisneyLand",
+        "category": "Tout public",
+        "description": "Journée disney land pour tous les âges.",
+        "startDate": "09/03/2016",
+        "endDate": "10/03/2016",
+        "lieu": "Paris",
+        "photo": "http://www.jdubuzz.com/files/2015/07/disneyland-15b.jpgoriginal.jpg",
+        "participants": [{
+            "name": "Alexis Thorel",
+            "email": "alexis.thorel@gmail.com",
+            "photoUrl": "",
+            "language": "Breton"            
+        },{
+            "name": "Quentin Pataky",
+            "email": "quentin.pataky@gmail.com",
+            "photoUrl": "",
+            "language": "Hongrois"
+        },{
+            "name": "Hervé Tutuaku",
+            "email": "herve.tutuaku@gmail.com",
+            "photoUrl": "",
+            "language": "Allemand"            
+        }]
+    }, {
+        "name": "Soirée bar",
+        "category": "Adulte",
+        "description": "Soirée détente macumba",
+        "startDate": "13/03/2016",
+        "endDate": "14/04/2016",
+        "lieu": "Macumba bar",
+        "photo": "http://cemainsecuritedunkerque.fr/wp-content/uploads/2016/02/8295865.0.jpg",
+        "participants": [{
+            "name": "Pierre Cabart",
+            "email": "pierre.cabart@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        },{
+            "name": "Shuxin Han",
+            "email": "shuxin.han@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        },{
+            "name": "Hervé Tutuaku",
+            "email": "herve.tutuaku@gmail.com",
+            "photoUrl": "",
+            "language": "Gitan"            
+        }]
+    }]
+}

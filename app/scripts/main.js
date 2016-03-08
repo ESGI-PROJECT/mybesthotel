@@ -70,8 +70,50 @@
   var app = window.app;
   		app.version = "0.0.1";
 
+  /**********************************************************************
+   *
+   * Event linsteners for UI elements
+   *
+   **********************************************************************/
+
+  // Add the route changed listener update UI on route changed
   document.addEventListener('routeChanged', function (e) {
   	console.log("Route have changed !");
   	console.log('New route : ' + app.route);
   });
+
+  $(".category").click(function () {
+  	app.openCategory();
+  });
+
+  /**********************************************************************
+   *
+   * Methods to update/refresh the UI
+   *
+   **********************************************************************/
+
+
+  /**********************************************************************
+   *
+   * Methods for dealing with the model
+   *
+   **********************************************************************/
+
+  app.openCategory = function (e, detail) {
+    app.getEvents();
+  }
+
+  app.getEvents = function () {
+    $.getJSON("../data/events.json", function(data){
+      var events = data.events;
+      for(var i = 0 ; i < Object.keys(events).length; i++) {
+        //get event data
+        var participants = events[i].participants;
+        for(var j = 0 ; j < Object.keys(participants).length; j++) {
+          //get participant data
+        }
+      }
+    });
+  }
+
 })();
