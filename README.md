@@ -19,3 +19,30 @@ After all dependencies have been installed juste run
 ```
 
 to run the webserver and run the app.
+
+# Code
+
+This simplate page web application is using [page.js](https://visionmedia.github.io/page.js/) for creating a simple declarative routing
+
+Each route will will change an app property that will change the displayed page of the app
+
+To create a new page you need to create  a new route like the following
+
+```javascript
+    // Route example
+    page('/...', function() {
+        app.route = '...';
+        app.params = {};
+    //   Add your custom data to the event detail object
+        event.detail['...'] = ...;
+        document.dispatchEvent(event);
+    });
+```
+
+And create a new `section` in HTML with a `data-route` custom property
+
+```html
+    <section data-route="...">
+        <!-- YOUR CONTENT HERE -->
+    </section>
+```
