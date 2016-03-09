@@ -69,6 +69,7 @@
   window.app = {};
   var app = window.app;
   		app.version = "0.0.1";
+  		app.mainPage = "events";
 
   /**********************************************************************
    *
@@ -80,7 +81,7 @@
   document.addEventListener('routeChanged', function (e) {
   	console.log("Route have changed !");
   	console.log('New route : ' + app.route);
-  	app.pageChange(app.route);
+  	app.pageChange(app.route, e.detail);
   });
 
   $(".category").click(function (e) {
@@ -94,10 +95,28 @@
    *
    **********************************************************************/
 
-   app.pageChange = function (route) {
+   app.pageChange = function (route, detail) {
    	$('.page').prop('hidden', true);
    	$('[data-route='+route+']').prop('hidden', false);
 
+   	// Replace menu button by return button
+   	if (route != app.mainPage) {
+   		console.log("not the main page");
+   		$('header .mdl-layout__drawer-button').prop('hidden', true);
+   		$('header .mdl-layout__drawer-button')
+   			.after('<div class="mdl-layout__drawer-button back-arrow"><i class="material-icons">arrow_back</i></div>');
+
+		  $('.back-arrow').click(function (e) {
+		  	if (detail.backLink) {
+		  		window.page.redirect(detail.backLink);
+		  	} else {
+		  		window.page.redirect('/');
+		  	}
+		  });
+   	} else {
+   		$('header .mdl-layout__drawer-button').prop('hidden', false);
+   		$('.back-arrow').remove();
+   	}
    }
 
 
