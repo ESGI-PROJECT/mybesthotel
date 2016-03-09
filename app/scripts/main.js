@@ -112,27 +112,21 @@
       var events = data.events;
       var html = '';
       for(var i = 0 ; i < Object.keys(events).length; i++) {
-        html += '<div class="event">';
         if(events[i].category == category){
-          //get event data
-          html += '<span> Nom : ' + events[i].name + '</span>';
-          html += '<img style="width:100px; height:100px;" src="' + events[i].photo + '">';
-          html += '<span> Description : ' + events[i].description + '</span>';
-          html += '<span> Lieu : ' + events[i].lieu + '</span>';
-          html += '<span> Date début : ' + events[i].startDate + '</span>';
-          html += '<span> Date fin : ' + events[i].endDate + '</span>';
-          var participants = events[i].participants;
-          for(var j = 0 ; j < Object.keys(participants).length; j++) {
-            //get participant data
-            html += '<div class="participant">';
-            html += '<span> Nom : ' + participants[j].name + '</span>';
-            html += '<span> Email : ' + participants[j].email + '</span>';
-            html += '<span> Langage : ' + participants[j].language + '</span>';
-          }
+          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="background-image: url('+ events[i].photo +');">';
+          html += '<p><i class="material-icons">bookmark_border</i> '+ events[i].category +' </p>';
+          html += '<h4>'+ events[i].name +'</h4>';
+          html += '<span class="mdl-list__item-primary-content">';
+          html += '<i class="material-icons">access_time</i> '+ events[i].startDate;
+          html += '</span></br>';
+          html += '<span><i class="material-icons">place</i> '+ events[i].lieu +'</span>';
+          html += '<div class="event-icons">';
+          html += '<i class="material-icons">favorite_border</i>'+ events[i].participants.length;
+          html += '</div>';
+          html += '</div>';
         }
-        html += '</div>';
       }
-      $("[data-route="+category+"]").html(html);
+      $("[data-route="+category+"].mdl-grid").html(html);
     });
   }
 
