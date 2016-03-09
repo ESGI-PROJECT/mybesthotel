@@ -82,7 +82,8 @@
   	console.log('New route : ' + app.route);
   });
 
-  $(".category").click(function () {
+  $(".category").click(function (e) {
+    console.log(e.currentTarget.id);
   	app.openCategory();
   });
 
@@ -111,6 +112,7 @@
         var participants = events[i].participants;
         for(var j = 0 ; j < Object.keys(participants).length; j++) {
           //get participant data
+          console.log(participants[j]);
         }
       }
     });

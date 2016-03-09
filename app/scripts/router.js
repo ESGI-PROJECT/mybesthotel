@@ -27,7 +27,7 @@
       app.params = {};
     });
 
-    page('/events/{category}', function() {
+    page('/event', function() {
       app.route = 'event';
       app.params = {};
     });
