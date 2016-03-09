@@ -44,7 +44,50 @@
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <body>
+  
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row mdl-center">
+      <!-- Logo -->
+      <span class="mdl-layout-title"><img src="img/wb_logo.png" height="40px"></span>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="is-full-width">
+        <div class="mdl-grid mdl-grid--no-spacing">
+          <div data-id="1" class="event-div mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/jazz-274x274_d6f407453a1f43d3163c55cca624a764_0_0_274_274.jpg');">
+          <span>Jazz Party</span></div>
+          <div data-id="2" class="event-div mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/links/partyicon_274x274.jpg');"><span>Nightclub</span></div>
+          <div data-id="3" class="event-div mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/original/dinner_1b6506abba0ba52c54e6d695c8571078_274x274.jpg');"><span>Meals</span></div>
+          <div data-id="4" class="event-div mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/romance-274x274_8100794c94847b6d27858bed6fa4d91b_0_0_274_274.jpg');"><span>Meeting</span></div>
+          <div data-id="5" class="event-div mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/kids_fec69f3f6e0a3df4ff330213ff2fcbcc_0_0_275_275.jpg');"><span>Children</span></div>
+          <div data-id="6" class="event-div mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/travel-274x274_1e89cd5b42cf8bd2ff8fc4fb26f2e955_0_0_274_274.jpg');"><span>Discover</span></div>
+        </div>
+      </div>
+    </div>
+      <!-- Colored FAB button with ripple -->
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-btn-floating mdl-button--fab mdl-js-ripple-effect">
+        <i class="material-icons">add</i>
+      </button>
+
+    </div>
+  </main>
+</div>
+
+
+
     <main id="main">
       <section data-route="/events">
         <div id="sport" class="category" style="width:100px; height:100px; background-color: blue;">

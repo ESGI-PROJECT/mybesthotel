@@ -118,4 +118,16 @@
     });
   }
 
+  var els = document.getElementsByClassName('event-div');
+
+  var goToEvent = function() {
+    var ev_id = this.getAttribute('data-id');
+    console.log(ev_id);
+    alert(ev_id);
+  }
+
+  Array.prototype.forEach.call(els, function(el, i){
+    el.addEventListener('click', goToEvent);
+  });
+
 })();
