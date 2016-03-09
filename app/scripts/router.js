@@ -30,10 +30,40 @@
       document.dispatchEvent(event);
     });
 
-    page('/event', function() {
-      app.route = 'event';
+    page('/event/jazzParty', function() {
+      app.route = 'jazzParty';
       app.params = {};
     	document.dispatchEvent(event);
+    });
+
+    page('/event/nightClub', function() {
+      app.route = 'nightClub';
+      app.params = {};
+      document.dispatchEvent(event);
+    });
+
+    page('/event/meals', function() {
+      app.route = 'meals';
+      app.params = {};
+      document.dispatchEvent(event);
+    });
+
+    page('/event/meeting', function() {
+      app.route = 'meeting';
+      app.params = {};
+      document.dispatchEvent(event);
+    });
+
+    page('/event/children', function() {
+      app.route = 'children';
+      app.params = {};
+      document.dispatchEvent(event);
+    });
+
+    page('/event/discover', function() {
+      app.route = 'discover';
+      app.params = {};
+      document.dispatchEvent(event);
     });
 
     // Route example

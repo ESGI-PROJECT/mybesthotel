@@ -51,6 +51,10 @@ section .page {
   cursor: pointer;
 }
 
+a.event-div{
+  text-decoration: none;
+}
+
 .event-div span {
   position: relative;
   top: 75%;
