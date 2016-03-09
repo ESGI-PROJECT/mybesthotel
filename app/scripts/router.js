@@ -13,23 +13,27 @@
   	var event = new CustomEvent('routeChanged', { 'detail': {} });
 
     page(app.baseUrl, function() {
-	  app.route = 'index';
+	  	app.route = 'index';
       app.params = {};
+      document.dispatchEvent(event);
     });
 
     page('/', function() {
       app.route = 'index';
       app.params = {};
+      document.dispatchEvent(event);
     });
 
     page('/events', function() {
       app.route = 'events';
       app.params = {};
+      document.dispatchEvent(event);
     });
 
     page('/events/{category}', function() {
       app.route = 'event';
       app.params = {};
+    	document.dispatchEvent(event);
     });
 
     // Route example

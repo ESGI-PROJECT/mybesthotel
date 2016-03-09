@@ -80,6 +80,7 @@
   document.addEventListener('routeChanged', function (e) {
   	console.log("Route have changed !");
   	console.log('New route : ' + app.route);
+  	app.pageChange(app.route);
   });
 
   $(".category").click(function () {
@@ -91,6 +92,12 @@
    * Methods to update/refresh the UI
    *
    **********************************************************************/
+
+   app.pageChange = function (route) {
+   	$('.page').prop('hidden', true);
+   	$('[data-route='+route+']').prop('hidden', false);
+
+   }
 
 
   /**********************************************************************
