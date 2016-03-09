@@ -84,6 +84,10 @@
   	app.pageChange(app.route, e.detail);
   });
 
+  $('form input[type=button]').click(function(){
+    app.saveEvent();
+  });
+
   /**********************************************************************
    *
    * Methods to update/refresh the UI
@@ -185,6 +189,10 @@
       }
       $("[data-route='event'] .mdl-grid").html(html);
     });
+  }
+
+  app.saveEvent = function () {
+    console.log('plop');
   }
 
   var els = document.getElementsByClassName('event-div');

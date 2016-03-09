@@ -46,6 +46,13 @@
       document.dispatchEvent(event);
     });
 
+    page('/add/event', function(data) {
+      app.route = 'formEvent';
+      app.params = {};
+      // event.detail['backLink'] = "/events";
+      document.dispatchEvent(event);
+    });
+
     // Route example
     // page('/...', function() {
     //   app.route = '...';
