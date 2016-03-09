@@ -187,11 +187,13 @@
           html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="eventMap" style="margin-bottom:20%;">';
           html += '</div>';
           html += '</div>';
+          var latitude = events[i].latitude;
+          var longitude = events[i].longitude;
         }
       }
       
       $("[data-route='event'] .mdl-grid").html(html);
-      displayEventMap();
+      displayEventMap(latitude, longitude);
     });
   }
 
@@ -211,8 +213,8 @@
     el.addEventListener('click', goToEvent);
   });
     
-  function displayEventMap() {
-      var latlng = new google.maps.LatLng(48.863656, 2.286876);
+  function displayEventMap(latitude, longitude) {
+      var latlng = new google.maps.LatLng(latitude, longitude);
       
       var options = {
           center: latlng,
@@ -224,7 +226,7 @@
       var eventMap = new google.maps.Map(document.getElementById("eventMap"), options);
       
       var marker = new google.maps.Marker({
-		position: new google.maps.LatLng(48.863656, 2.286876),
+		position: new google.maps.LatLng(latitude, longitude),
 		map: eventMap
 	  });
   }
