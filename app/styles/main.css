@@ -38,6 +38,10 @@
 }
 
 /* content */
+section .page {
+  display: none;
+}
+
 .event-div {
   height: 250px;
   background-size: cover;  
