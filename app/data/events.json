@@ -1,7 +1,8 @@
 {
     "events": [{
         "name": "Journée DisneyLand",
-        "category": "Tout public",
+        "category": "meeting",
+        "category_name" : "Jazz Party",
         "description": "Journée disney land pour tous les âges.",
         "startDate": "09/03/2016",
         "endDate": "10/03/2016",
@@ -25,7 +26,8 @@
         }]
     }, {
         "name": "Soirée bar",
-        "category": "Adulte",
+        "category": "meeting",
+        "category_name" : "Meeting",
         "description": "Soirée détente macumba",
         "startDate": "13/03/2016",
         "endDate": "14/04/2016",

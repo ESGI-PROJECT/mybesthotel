@@ -33,36 +33,48 @@
     page('/event/jazzParty', function() {
       app.route = 'jazzParty';
       app.params = {};
+      event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
     	document.dispatchEvent(event);
     });
 
     page('/event/nightClub', function() {
       app.route = 'nightClub';
       app.params = {};
+      event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
     page('/event/meals', function() {
       app.route = 'meals';
       app.params = {};
+      event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
     page('/event/meeting', function() {
       app.route = 'meeting';
       app.params = {};
+      event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
     page('/event/children', function() {
       app.route = 'children';
       app.params = {};
+      event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
     page('/event/discover', function() {
       app.route = 'discover';
       app.params = {};
+      event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
