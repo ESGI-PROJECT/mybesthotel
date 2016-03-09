@@ -13,13 +13,13 @@
   	var event = new CustomEvent('routeChanged', { 'detail': {} });
 
     page(app.baseUrl, function() {
-	  	app.route = 'index';
+	  	app.route = 'events';
       app.params = {};
       document.dispatchEvent(event);
     });
 
     page('/', function() {
-      app.route = 'index';
+      app.route = 'events';
       app.params = {};
       document.dispatchEvent(event);
     });
@@ -30,7 +30,7 @@
       document.dispatchEvent(event);
     });
 
-    page('/events/{category}', function() {
+    page('/event', function() {
       app.route = 'event';
       app.params = {};
     	document.dispatchEvent(event);
