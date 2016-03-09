@@ -185,10 +185,14 @@
             html += '<span>'+participants[j].name+'</span>';
             html += '</div>';
           }
+          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="eventMap" style="margin-bottom:20%;">';
+          html += '</div>';
           html += '</div>';
         }
       }
+      
       $("[data-route='event'] .mdl-grid").html(html);
+      displayEventMap();
     });
   }
 
@@ -207,5 +211,23 @@
   Array.prototype.forEach.call(els, function(el, i){
     el.addEventListener('click', goToEvent);
   });
+    
+  function displayEventMap() {
+      var latlng = new google.maps.LatLng(48.863656, 2.286876);
+      
+      var options = {
+          center: latlng,
+          zoom: 19,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      
+      var eventMap = new google.maps.Map(document.getElementById("eventMap"), options);
+      
+      var marker = new google.maps.Marker({
+		position: new google.maps.LatLng(48.863656, 2.286876),
+		map: eventMap
+	  });
+  }
 
 })();
