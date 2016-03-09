@@ -30,51 +30,26 @@
       document.dispatchEvent(event);
     });
 
-    page('/event/jazzParty', function() {
-      app.route = 'jazzParty';
+    page('/event/:category', function(data) {
+      app.route = 'categoryEvent';
       app.params = {};
       event.detail['backLink'] = "/events";
-      app.getEvents(app.route);
-    	document.dispatchEvent(event);
-    });
-
-    page('/event/nightClub', function() {
-      app.route = 'nightClub';
-      app.params = {};
-      event.detail['backLink'] = "/events";
-      app.getEvents(app.route);
+      app.getEvents(data.params.category);
       document.dispatchEvent(event);
     });
 
-    page('/event/meals', function() {
-      app.route = 'meals';
+    page('/event/:category/:id', function(data) {
+      app.route = 'event';
       app.params = {};
-      event.detail['backLink'] = "/events";
-      app.getEvents(app.route);
+      event.detail['backLink'] = "/event/" + data.params.category;
+      app.getEvent(data.params.id);
       document.dispatchEvent(event);
     });
 
-    page('/event/meeting', function() {
-      app.route = 'meeting';
+    page('/add/event', function(data) {
+      app.route = 'formEvent';
       app.params = {};
-      event.detail['backLink'] = "/events";
-      app.getEvents(app.route);
-      document.dispatchEvent(event);
-    });
-
-    page('/event/children', function() {
-      app.route = 'children';
-      app.params = {};
-      event.detail['backLink'] = "/events";
-      app.getEvents(app.route);
-      document.dispatchEvent(event);
-    });
-
-    page('/event/discover', function() {
-      app.route = 'discover';
-      app.params = {};
-      event.detail['backLink'] = "/events";
-      app.getEvents(app.route);
+      // event.detail['backLink'] = "/events";
       document.dispatchEvent(event);
     });
 

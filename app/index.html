@@ -43,6 +43,8 @@
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
+    
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
   </head>
   <body>
   
@@ -69,56 +71,71 @@
             <section data-route="events" class="page" hidden>
               <div class="mdl-grid mdl-grid--no-spacing">
                 <a href="/event/jazzParty" id="jazzParty" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/jazz-274x274_d6f407453a1f43d3163c55cca624a764_0_0_274_274.jpg');">
-                <span>Jazz Party</span></a>
-                <a href="/event/nightClub" id="nightClub" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/links/partyicon_274x274.jpg');"><span>Nightclub</span></a>
-                <a href="/event/meals" id="meals" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/original/dinner_1b6506abba0ba52c54e6d695c8571078_274x274.jpg');"><span>Meals</span></a>
-                <a href="/event/meeting"  id="meeting" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/romance-274x274_8100794c94847b6d27858bed6fa4d91b_0_0_274_274.jpg');"><span>Meeting</span></a>
-                <a href="/event/children" id="children" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/kids_fec69f3f6e0a3df4ff330213ff2fcbcc_0_0_275_275.jpg');"><span>Children</span></a>
-                <a href="/event/discover" id="discover" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/travel-274x274_1e89cd5b42cf8bd2ff8fc4fb26f2e955_0_0_274_274.jpg');"><span>Discover</span></a>
+                    <span>Jazz Party</span>
+                </a>
+                <a href="/event/nightClub" id="nightClub" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/links/partyicon_274x274.jpg');">
+                    <span>Nightclub</span>
+                </a>
+                <a href="/event/meals" id="meals" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/original/dinner_1b6506abba0ba52c54e6d695c8571078_274x274.jpg');">
+                    <span>Meals</span>
+                </a>
+                <a href="/event/meeting"  id="meeting" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/romance-274x274_8100794c94847b6d27858bed6fa4d91b_0_0_274_274.jpg');">
+                    <span>Meeting</span>
+                </a>
+                <a href="/event/children" id="children" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/kids_fec69f3f6e0a3df4ff330213ff2fcbcc_0_0_275_275.jpg');">
+                    <span>Children</span>
+                </a>
+                <a href="/event/discover" id="discover" class="event-div mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--2-col-phone" style="background-image: url('https://t.scdn.co/media/derived/travel-274x274_1e89cd5b42cf8bd2ff8fc4fb26f2e955_0_0_274_274.jpg');">
+                    <span>Discover</span>
+                </a>
               </div>
             </section>
-            <section data-route="jazzParty" class="page">
+            <section data-route="categoryEvent" class="page">
               <div class="is-full-width">
                 <div class="mdl-grid mdl-grid--no-spacing">
                 </div>
               </div>
             </section>
-            <section data-route="nightClub" class="page">
+            <section data-route="event" class="page">
               <div class="is-full-width">
                 <div class="mdl-grid mdl-grid--no-spacing">
                 </div>
               </div>
             </section>
-            <section data-route="meals" class="page">
-              <div class="is-full-width">
-                <div class="mdl-grid mdl-grid--no-spacing">
-                </div>
-              </div>
-            </section>
-            <section data-route="meeting" class="page">
-              <div class="is-full-width">
-                <div class="mdl-grid mdl-grid--no-spacing">
-                </div>
-              </div>
-            </section>
-            <section data-route="children" class="page">
-              <div class="is-full-width">
-                <div class="mdl-grid mdl-grid--no-spacing">
-                </div>
-              </div>
-            </section>
-            <section data-route="discover" class="page">
-              <div class="is-full-width">
-                <div class="mdl-grid mdl-grid--no-spacing">
-                </div>
-              </div>
+            <section data-route="formEvent" class="page">
+              <form>
+                <label for="name">Nom: </label>
+                <input type="text" name="name"></br>
+                <label for="category">Catégorie: </label>
+                <select name="category">
+                  <option value="jazzParty">Jazz Party</option>
+                  <option value="nightClub">Nightclub</option>
+                  <option value="meals">Meals</option>
+                  <option value="meeting">Meeting</option>
+                  <option value="children">Children</option>
+                  <option value="discover">Discover</option>
+                </select></br>
+                <label for="description">Description: </label>
+                <textarea name="description"></textarea></br>
+                <label for="startDate">Date début: </label>
+                <input type="date" name="startDate"></br>
+                <label for="endDate">Date fin: </label>
+                <input type="date" name="endDate"></br>
+                <label for="lieu">Lieu: </label>
+                <input type="text" name="lieu"></br>
+                <a href="/event/meeting/3">
+                  <input type='button' name='event' value='Enregistrer'>
+                </a>
+              </form>
             </section>
           </div>
         </div>
           <!-- Colored FAB button with ripple -->
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-btn-floating mdl-button--fab mdl-js-ripple-effect">
-            <i class="material-icons">add</i>
-          </button>
+          <a href="/add/event">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-btn-floating mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">add</i>
+            </button>
+          </a>
 
         </div>
       </main>
@@ -127,7 +144,7 @@
     <!-- Include javascript libraries -->
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-
+    
     <script src="vendor/page/page.js"></script>
     <!-- build:js(app/) ../../scripts/main.min.js -->
     <script src="scripts/main.js"></script>

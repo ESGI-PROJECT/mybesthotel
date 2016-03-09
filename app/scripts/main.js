@@ -70,6 +70,7 @@
   var app = window.app;
   		app.version = "0.0.1";
   		app.mainPage = "events";
+      app.pathJson = "../data/events.json";
 
   /**********************************************************************
    *
@@ -82,6 +83,10 @@
   	console.log("Route have changed !");
   	console.log('New route : ' + app.route);
   	app.pageChange(app.route, e.detail);
+  });
+
+  $('form input[type=button]').click(function(){
+    app.saveEvent();
   });
 
   /**********************************************************************
@@ -121,12 +126,12 @@
    **********************************************************************/
 
   app.getEvents = function (category) {
-    $.getJSON("../data/events.json", function(data){
+    $.getJSON(app.pathJson, function(data){
       var events = data.events;
       var html = '';
       for(var i = 0 ; i < Object.keys(events).length; i++) {
         if(events[i].category == category){
-          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="background-image: url('+ events[i].photo +');">';
+          html += '<a href="/event/' + category + '/' + events[i].id + '" class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="background-image: url('+ events[i].photo +');">';
           html += '<p><i class="material-icons">bookmark_border</i> '+ events[i].category_name +' </p>';
           html += '<h4>'+ events[i].name +'</h4>';
           html += '<span class="mdl-list__item-primary-content">';
@@ -139,20 +144,89 @@
           html += '</div>';
         }
       }
-      $("[data-route="+category+"] .mdl-grid").html(html);
+      $("[data-route='categoryEvent'] .mdl-grid").html(html);
     });
+  }
+
+  app.getEvent = function (id) {
+     $.getJSON(app.pathJson, function(data){
+      var events = data.events;
+      var html = '';
+      for(var i = 0 ; i < Object.keys(events).length; i++) {
+        if(events[i].id == id){
+          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="background-image: url('+events[i].photo+');">';
+          html += '<p><i class="material-icons">bookmark_border</i> '+ events[i].category_name +' </p>';
+          html += '<h4>'+ events[i].name +'</h4>';
+          html += '<div class="mdl-card__actions mdl-card--border">'
+          html += 'Date de début: '+events[i].startDate+'</br>';
+          html += 'Date de fin: '+events[i].endDate+'</br>';
+          html += 'Lieu: '+events[i].lieu;
+          html += '</div>';
+          html += '<div class="event-icons"><img width="30px" src="images/logo.svg"></div>';
+          html += '<div class="mdl-card__actions mdl-card--border">';
+          html += '<a class="mdl-button mdl-button--colored mdl-js-ripple-effect">';
+          html += 'Description de l\'événement';
+          html += '</a>';
+          html += '<div class="mdl-card__supporting-text">';
+          html += events[i].description;
+          html += '</div>';
+          html += '<div class="mdl-card__actions mdl-card--border">';
+          html += '<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">';
+          html += 'Participants';
+          html += '</a>';
+          html += '</div>';
+
+          var participants = events[i].participants;
+          for(var j = 0 ; j < Object.keys(participants).length; j++) {
+            html += '<div class="mdl-card__actions mdl-card--border">';
+            html += '<span class="mdl-list__item-primary-content">';
+            html += '<i class="material-icons mdl-list__item-avatar">person</i>';
+            html += '<span>'+participants[j].name+'</span>';
+            html += '</div>';
+          }
+          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="eventMap" style="margin-bottom:20%;">';
+          html += '</div>';
+          html += '</div>';
+        }
+      }
+      
+      $("[data-route='event'] .mdl-grid").html(html);
+      displayEventMap();
+    });
+  }
+
+  app.saveEvent = function () {
+    app.pathJson = "../data/events2.json";
   }
 
   var els = document.getElementsByClassName('event-div');
 
   var goToEvent = function() {
     var ev_id = this.getAttribute('data-id');
-    console.log(ev_id);
+    // console.log(ev_id);
     // alert(ev_id);
   }
 
   Array.prototype.forEach.call(els, function(el, i){
     el.addEventListener('click', goToEvent);
   });
+    
+  function displayEventMap() {
+      var latlng = new google.maps.LatLng(48.863656, 2.286876);
+      
+      var options = {
+          center: latlng,
+          zoom: 19,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      
+      var eventMap = new google.maps.Map(document.getElementById("eventMap"), options);
+      
+      var marker = new google.maps.Marker({
+		position: new google.maps.LatLng(48.863656, 2.286876),
+		map: eventMap
+	  });
+  }
 
 })();

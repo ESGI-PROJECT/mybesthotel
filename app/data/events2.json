@@ -51,5 +51,31 @@
             "photoUrl": "",
             "language": "Gitan"            
         }]
+    }, {
+        "id": 3,
+        "name": "Soirée bar",
+        "category": "meeting",
+        "category_name" : "Meeting",
+        "description": "Soirée détente macumba",
+        "startDate": "13/03/2016",
+        "endDate": "14/04/2016",
+        "lieu": "Macumba bar",
+        "photo": "http://cemainsecuritedunkerque.fr/wp-content/uploads/2016/02/8295865.0.jpg",
+        "participants": [{
+            "name": "Pierre Cabart",
+            "email": "pierre.cabart@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        },{
+            "name": "Shuxin Han",
+            "email": "shuxin.han@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        },{
+            "name": "Hervé Tutuaku",
+            "email": "herve.tutuaku@gmail.com",
+            "photoUrl": "",
+            "language": "Gitan"            
+        }]
     }]
 }
