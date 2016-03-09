@@ -127,7 +127,7 @@
       var html = '';
       for(var i = 0 ; i < Object.keys(events).length; i++) {
         if(events[i].category == category){
-          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="background-image: url('+ events[i].photo +');">';
+          html += '<a href="/event/' + category + '/' + events[i].id + '" class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="background-image: url('+ events[i].photo +');">';
           html += '<p><i class="material-icons">bookmark_border</i> '+ events[i].category_name +' </p>';
           html += '<h4>'+ events[i].name +'</h4>';
           html += '<span class="mdl-list__item-primary-content">';
@@ -140,7 +140,19 @@
           html += '</div>';
         }
       }
-      $("[data-route="+category+"] .mdl-grid").html(html);
+      $("[data-route='categoryEvent'] .mdl-grid").html(html);
+    });
+  }
+
+  app.getEvent = function (id) {
+     $.getJSON("../data/events.json", function(data){
+      var events = data.events;
+      var html = '';
+      for(var i = 0 ; i < Object.keys(events).length; i++) {
+        if(events[i].id == id){
+          //integration page single event
+        }
+      }
     });
   }
 

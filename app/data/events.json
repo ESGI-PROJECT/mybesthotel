@@ -1,5 +1,6 @@
 {
     "events": [{
+        "id": 1,
         "name": "Journée DisneyLand",
         "category": "meeting",
         "category_name" : "Jazz Party",
@@ -25,6 +26,7 @@
             "language": "Allemand"            
         }]
     }, {
+        "id": 2,
         "name": "Soirée bar",
         "category": "meeting",
         "category_name" : "Meeting",

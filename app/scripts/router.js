@@ -30,11 +30,19 @@
       document.dispatchEvent(event);
     });
 
-     page('/event/:category', function(data) {
-      app.route = data.params.category;
+    page('/event/:category', function(data) {
+      app.route = 'categoryEvent';
       app.params = {};
       event.detail['backLink'] = "/events";
-      app.getEvents(app.route);
+      app.getEvents(data.params.category);
+      document.dispatchEvent(event);
+    });
+
+    page('/event/:category/:id', function(data) {
+      app.route = 'event';
+      app.params = {};
+      event.detail['backLink'] = "/event/" + data.params.category;
+      app.getEvent(data.params.id);
       document.dispatchEvent(event);
     });
 
