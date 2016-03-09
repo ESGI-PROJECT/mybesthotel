@@ -83,9 +83,9 @@
   	app.pageChange(app.route);
   });
 
-  $(".category").click(function (e) {
+  $(".event-div").click(function (e) {
     console.log(e.currentTarget.id);
-  	app.openCategory();
+  	app.getEvents(e.currentTarget.id);
   });
 
   /**********************************************************************
@@ -107,21 +107,32 @@
    *
    **********************************************************************/
 
-  app.openCategory = function (e, detail) {
-    app.getEvents();
-  }
-
-  app.getEvents = function () {
+  app.getEvents = function (category) {
     $.getJSON("../data/events.json", function(data){
       var events = data.events;
+      var html = '';
       for(var i = 0 ; i < Object.keys(events).length; i++) {
-        //get event data
-        var participants = events[i].participants;
-        for(var j = 0 ; j < Object.keys(participants).length; j++) {
-          //get participant data
-          console.log(participants[j]);
+        html += '<div class="event">';
+        if(events[i].category == category){
+          //get event data
+          html += '<span> Nom : ' + events[i].name + '</span>';
+          html += '<img style="width:100px; height:100px;" src="' + events[i].photo + '">';
+          html += '<span> Description : ' + events[i].description + '</span>';
+          html += '<span> Lieu : ' + events[i].lieu + '</span>';
+          html += '<span> Date début : ' + events[i].startDate + '</span>';
+          html += '<span> Date fin : ' + events[i].endDate + '</span>';
+          var participants = events[i].participants;
+          for(var j = 0 ; j < Object.keys(participants).length; j++) {
+            //get participant data
+            html += '<div class="participant">';
+            html += '<span> Nom : ' + participants[j].name + '</span>';
+            html += '<span> Email : ' + participants[j].email + '</span>';
+            html += '<span> Langage : ' + participants[j].language + '</span>';
+          }
         }
+        html += '</div>';
       }
+      $("[data-route="+category+"]").html(html);
     });
   }
 

@@ -1,7 +1,7 @@
 {
     "events": [{
         "name": "Journée DisneyLand",
-        "category": "Tout public",
+        "category": "jazzParty",
         "description": "Journée disney land pour tous les âges.",
         "startDate": "09/03/2016",
         "endDate": "10/03/2016",
