@@ -193,7 +193,7 @@
   }
 
   app.saveEvent = function () {
-    app.pathJson = "../data/events2.json"
+    app.pathJson = "../data/events2.json";
   }
 
   var els = document.getElementsByClassName('event-div');
