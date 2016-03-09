@@ -18,7 +18,7 @@
     display: inline-block;
     position: fixed;
     bottom: 45px;
-  right: 24px;
+    right: 24px;
     overflow: hidden;
     z-index: 1000;
     line-height: 37px;
@@ -98,4 +98,20 @@ a.event-div{
 
 .event-list-item .event-icons i {
   //text-align: right;
+}
+
+.mdl-list__item-avatar.material-icons {
+    height: 40px;
+    width: 40px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background-color: #013E88;
+    font-size: 40px;
+    color: #fff;
+}
+
+.mdl-list__item-primary-content span {
+  line-height: 40px;
+  vertical-align: text-bottom;
+  color: #010101;
 }
