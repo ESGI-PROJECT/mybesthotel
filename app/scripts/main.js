@@ -96,7 +96,6 @@
 
    	// Replace menu button by return button
    	if (route != app.mainPage) {
-   		console.log("not the main page");
    		$('header .mdl-layout__drawer-button').prop('hidden', true);
    		$('header .mdl-layout__drawer-button')
    			.after('<div class="mdl-layout__drawer-button back-arrow"><i class="material-icons">arrow_back</i></div>');
