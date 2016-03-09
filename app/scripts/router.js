@@ -34,6 +34,7 @@
       app.route = 'jazzParty';
       app.params = {};
       event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
     	document.dispatchEvent(event);
     });
 
@@ -41,6 +42,7 @@
       app.route = 'nightClub';
       app.params = {};
       event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
@@ -48,6 +50,7 @@
       app.route = 'meals';
       app.params = {};
       event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
@@ -55,6 +58,7 @@
       app.route = 'meeting';
       app.params = {};
       event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
@@ -62,6 +66,7 @@
       app.route = 'children';
       app.params = {};
       event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
@@ -69,6 +74,7 @@
       app.route = 'discover';
       app.params = {};
       event.detail['backLink'] = "/events";
+      app.getEvents(app.route);
       document.dispatchEvent(event);
     });
 
