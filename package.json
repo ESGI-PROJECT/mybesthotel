@@ -16,5 +16,11 @@
     "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-webserver": "^0.9.1",
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
 }
