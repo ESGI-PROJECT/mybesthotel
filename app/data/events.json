@@ -8,6 +8,8 @@
         "startDate": "09/03/2016",
         "endDate": "10/03/2016",
         "lieu": "Paris",
+        "latitude": 48.872211, 
+        "longitude": 2.775801,
         "photo": "http://www.jdubuzz.com/files/2015/07/disneyland-15b.jpgoriginal.jpg",
         "participants": [{
             "name": "Alexis Thorel",
@@ -34,6 +36,8 @@
         "startDate": "13/03/2016",
         "endDate": "14/04/2016",
         "lieu": "Macumba bar",
+        "latitude": 48.864731, 
+        "longitude": 2.381944,
         "photo": "http://cemainsecuritedunkerque.fr/wp-content/uploads/2016/02/8295865.0.jpg",
         "participants": [{
             "name": "Pierre Cabart",
