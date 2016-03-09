@@ -114,7 +114,7 @@
       for(var i = 0 ; i < Object.keys(events).length; i++) {
         if(events[i].category == category){
           html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="background-image: url('+ events[i].photo +');">';
-          html += '<p><i class="material-icons">bookmark_border</i> '+ events[i].category +' </p>';
+          html += '<p><i class="material-icons">bookmark_border</i> '+ events[i].category_name +' </p>';
           html += '<h4>'+ events[i].name +'</h4>';
           html += '<span class="mdl-list__item-primary-content">';
           html += '<i class="material-icons">access_time</i> '+ events[i].startDate;
@@ -126,7 +126,7 @@
           html += '</div>';
         }
       }
-      $("[data-route="+category+"].mdl-grid").html(html);
+      $("[data-route="+category+"] .mdl-grid").html(html);
     });
   }
 
