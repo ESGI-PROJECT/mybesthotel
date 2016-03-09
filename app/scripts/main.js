@@ -70,6 +70,7 @@
   var app = window.app;
   		app.version = "0.0.1";
   		app.mainPage = "events";
+      app.pathJson = "../data/events.json";
 
   /**********************************************************************
    *
@@ -126,7 +127,7 @@
    **********************************************************************/
 
   app.getEvents = function (category) {
-    $.getJSON("../data/events.json", function(data){
+    $.getJSON(app.pathJson, function(data){
       var events = data.events;
       var html = '';
       for(var i = 0 ; i < Object.keys(events).length; i++) {
@@ -149,7 +150,7 @@
   }
 
   app.getEvent = function (id) {
-     $.getJSON("../data/events.json", function(data){
+     $.getJSON(app.pathJson, function(data){
       var events = data.events;
       var html = '';
       for(var i = 0 ; i < Object.keys(events).length; i++) {
@@ -192,7 +193,7 @@
   }
 
   app.saveEvent = function () {
-    console.log('plop');
+    app.pathJson = "../data/events2.json"
   }
 
   var els = document.getElementsByClassName('event-div');
