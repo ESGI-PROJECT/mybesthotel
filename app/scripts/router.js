@@ -41,8 +41,19 @@
     page('/event/:category/:id', function(data) {
       app.route = 'event';
       app.params = data.params;
+      event.detail = {};
       event.detail['backLink'] = "/event/" + data.params.category;
       app.getEvent(data.params.id);
+      document.dispatchEvent(event);
+    });
+
+    page('/event/:category/:id/chat', function(data) {
+      app.route = 'chat';
+      app.params = data.params;
+      data.params['hideFab'] = true;
+      event.detail['backLink'] = "/event/" + data.params.category + '/' + data.params.id;
+
+			app.openConnection(app.params.category, app.params.id);
       document.dispatchEvent(event);
     });
 

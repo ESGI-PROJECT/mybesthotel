@@ -38,6 +38,8 @@
 
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
 
+    <link rel="stylesheet" href="https://almsaeedstudio.com/themes/AdminLTE/dist/css/AdminLTE.min.css">
+
     <!-- Material Design icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -149,15 +151,114 @@
                 </div>
               </form>
             </section>
+            <section class="page" data-route="chat" hidden>
+            <div class="box direct-chat direct-chat-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Event Chat</h3>
+                  <span class="mdl-badge">4</span>
+                  <!-- <div class="box-tools pull-right">
+                    <i class="material-icons">close</i>
+                  </div> -->
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <!-- Conversations are loaded here -->
+                  <div class="direct-chat-messages">
+                    <!-- Message. Default to the left -->
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">Alexander</span>
+                        <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b12d72da.png" alt="message user image">
+                      <div class="direct-chat-text">
+                        Is this template really for free? That's unbelievable!
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
+
+                    <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right">Vous</span>
+                        <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b1f4a412.png" alt="message user image"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        You better believe it!
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
+
+                    <!-- Message. Default to the left -->
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">Alexander</span>
+                        <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b12d72da.png" alt="message user image">
+                      <div class="direct-chat-text">
+                        Is this template really for free? That's unbelievable!
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
+
+                    <!-- Message. Default to the left -->
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">Sarah</span>
+                        <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b1c0c44b.png" alt="message user image">
+                      <div class="direct-chat-text">
+                        Is this template really for free? That's unbelievable!
+                        Is this template really for free? That's unbelievable!
+                        Is this template really for free? That's unbelievable!
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
+
+                    <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right">Vous</span>
+                        <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b1f4a412.png" alt="message user image"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        You better believe it!
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
+
+                    <!-- Message. Default to the left -->
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">Alexander</span>
+                        <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                      </div><!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b12d72da.png" alt="message user image">
+                      <div class="direct-chat-text">
+                        Is this template really for free? That's unbelievable!
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
+
+                  </div><!--/.direct-chat-messages-->
+                </div><!-- /.box-body -->
+                <div class="box-footer">
+                  <form id="chat-form" action="#" method="post">
+                    <div class="input-group">
+                      <textarea name="message" placeholder="Type a Message ..." class="form-control" type="text"></textarea>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary btn-flat"><i class="material-icons">send</i></button>
+                      </span>
+                    </div>
+                  </form>
+                </div><!-- /.box-footer-->
+              </div>            
+            </section>
           </div>
         </div>
           <!-- Colored FAB button with ripple -->
           <a href="/add/event">
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-btn-floating mdl-button--fab mdl-js-ripple-effect">
+            <button id="fabButton" class="mdl-button mdl-js-button mdl-button--raised mdl-btn-floating mdl-button--fab mdl-js-ripple-effect">
               <i class="material-icons">add</i>
             </button>
           </a>
-
         </div>
       </main>
     </div>

@@ -201,6 +201,33 @@ body {
   border: none;
   box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
   width: 280px; }
+
+.chat-box {
+/*  height: 99vh;
+  position: absolute;
+  top: 1.5em;
+  width: 90%;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #D3D3D3;*/
+}
+
+
+.mdl-textfield .mdl-button {
+  /*right: 0;*/
+}
+
+.mdl-dialog__content {
+}
+
+.mdl-dialog__actions {
+  background-color: #FFFFFF;
+}
+
+.chat-input {
+
+}
+
 .mdl-dialog__title {
   padding: 24px 24px 0;
   margin: 0;
@@ -237,7 +264,7 @@ body {
   text-align: right; 
 }
 .mdl-dialog__content {
-  padding: 20px 24px 24px 24px;
+  padding: 20px 0px 24px 0px;
   color: rgba(0,0,0, 0.54);
   display: inline-block;
 }
@@ -264,4 +291,121 @@ body {
 
 .button-pressed p{
   background: #ff4081;
+
+/**/
+
+/* Chat page */
+.direct-chat-text {
+  border-radius: 0;
+}
+
+.direct-chat-primary .right>.direct-chat-text {
+    background: #013E88;
+    border-color: #013E88;
+}
+
+.direct-chat-primary .right>.direct-chat-text:after, 
+.direct-chat-primary .right>.direct-chat-text:before {
+    border-left-color: #013E88;
+}
+
+.direct-chat {
+  border-top: 0; 
+}
+
+.box-footer {
+  position: fixed;
+  bottom: 0;
+}
+
+.box-header {
+}
+
+.box-header .mdl-badge {
+  padding: 3px 9px;
+    background: #013E88;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.box-body {
+  min-height: 70vh;
+}
+
+.direct-chat-messages {
+  min-height: 70vh;
+}
+
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+
+.input-group .form-control, 
+.input-group-addon, .input-group-btn {
+    display: table-cell;
+}
+
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 0;
+  box-shadow: none;
+  border-color: #d2d6de;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+}
+
+.input-group-btn {
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+}
+
+.input-group-addon, .input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.btn-primary {
+    background-color: #013E88;
+    border-color: #013E88;
+}
+
+.input-group-btn {
+    display: table-cell;
+}
+
+.input-group-btn:last-child > .btn, 
+.input-group-btn:last-child > .btn-group {
+    z-index: 2;
+    margin-left: -1px;
+    height: 48px;
+    color: #fff;
+    padding: 11px;
+}
+
+.btn:focus {
+    outline: none;
+}
+.btn.btn-flat {
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-width: 1px;
+}
+.input-group-btn > .btn {
+    position: relative;
 }
