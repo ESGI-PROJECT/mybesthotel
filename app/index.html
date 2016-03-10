@@ -90,13 +90,13 @@
                 </a>
               </div>
             </section>
-            <section data-route="categoryEvent" class="page">
+            <section data-route="categoryEvent" class="page" hidden>
               <div class="is-full-width">
                 <div class="mdl-grid mdl-grid--no-spacing">
                 </div>
               </div>
             </section>
-            <section data-route="event" class="page">
+            <section data-route="event" class="page" hidden>
               <div class="is-full-width">
                 <div class="mdl-grid mdl-grid--no-spacing">
                   <div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="eventMap" style="margin-bottom:20%;">
@@ -104,30 +104,43 @@
                 </div>
               </div>
             </section>
-            <section data-route="formEvent" class="page">
+            <section data-route="formEvent" class="page" hidden>
               <form>
-                <label for="name">Nom: </label>
-                <input type="text" name="name"></br>
-                <label for="category">Catégorie: </label>
-                <select name="category">
-                  <option value="jazzParty">Jazz Party</option>
-                  <option value="nightClub">Nightclub</option>
-                  <option value="meals">Meals</option>
-                  <option value="meeting">Meeting</option>
-                  <option value="children">Children</option>
-                  <option value="discover">Discover</option>
-                </select></br>
-                <label for="description">Description: </label>
-                <textarea name="description"></textarea></br>
-                <label for="startDate">Date début: </label>
-                <input type="date" name="startDate"></br>
-                <label for="endDate">Date fin: </label>
-                <input type="date" name="endDate"></br>
-                <label for="lieu">Lieu: </label>
-                <input type="text" name="lieu"></br>
+                <div class="mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" name="name">
+                  <label class="mdl-textfield__label" for="name">Nom: </label>
+                </div>
+                <div class="mdl-selectfield">
+                  <label class="mdl-textfield__label" for="category">Catégorie: </label>
+                  <select class="browser-default" name="category">
+                    <option value="" disabled selected>Choisissez une catégorie</option>
+                    <option value="jazzParty">Jazz Party</option>
+                    <option value="nightClub">Nightclub</option>
+                    <option value="meals">Meals</option>
+                    <option value="meeting">Meeting</option>
+                    <option value="children">Children</option>
+                    <option value="discover">Discover</option>
+                  </select>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                  <textarea class="mdl-textfield__input" name="description"></textarea>
+                  <label class="mdl-textfield__label" for="description">Description: </label>
+                </div>
+                <!-- <input type="date" name="startDate">
+                <label class="mdl-textfield__label" for="startDate">Date début: </label>
+                <input type="date" name="endDate">
+                <label class="mdl-textfield__label" for="endDate">Date fin: </label> -->
+                <div class="mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" name="lieu">
+                  <label class="mdl-textfield__label" for="lieu">Lieu: </label>
+                </div>
                 <a href="/event/meeting/3">
-                  <input type='button' name='event' value='Enregistrer'>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                    Ajouter évènement
+                  </button> 
+                  <!-- <input type='button' name='event' value='Enregistrer'> -->
                 </a>
+                </div>
               </form>
             </section>
           </div>

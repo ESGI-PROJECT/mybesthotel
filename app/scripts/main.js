@@ -85,7 +85,7 @@
   	app.pageChange(app.route, e.detail);
   });
 
-  $('form input[type=button]').click(function(){
+  $('form button').click(function(){
     app.saveEvent();
   });
 
