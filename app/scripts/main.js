@@ -85,7 +85,7 @@
   	app.pageChange(app.route, e.detail);
   });
 
-  $('form input[type=button]').click(function(){
+  $('form button').click(function(){
     app.saveEvent();
   });
 
@@ -139,6 +139,34 @@
    		$('.back-arrow').remove();
    	}
    }
+
+   $(function() {
+    var availableTags = [
+      {
+        value: "DisneyLand",
+        latitude: 48.872211,
+        longitude: 2.775801, 
+      },
+      {
+        value: "Macumba",
+        latitude: 48.864731,
+        longitude: 2.381944, 
+      }
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags,
+      focus: function( event, ui ) {
+        $( "#tags" ).val( ui.item.value );
+        return false;
+      },
+      select: function( event, ui ) {
+        $( "#tags" ).val( ui.item.value );
+        console.log('select');
+        app.displayEventMap(ui.item.latitude, ui.item.longitude, "createEvent");
+        return false;
+      }
+    });
+  });
 
 
   /**********************************************************************
@@ -197,16 +225,29 @@
           html += 'Participants';
           html += '</a>';
           html += '</div>';
-
+          html += '<div class="mdl-list">';
           var participants = events[i].participants;
           for(var j = 0 ; j < Object.keys(participants).length; j++) {
-            html += '<div class="mdl-card__actions mdl-card--border">';
+            html += '<div class="mdl-list__item">';
             html += '<span class="mdl-list__item-primary-content">';
             html += '<i class="material-icons mdl-list__item-avatar">person</i>';
-            html += '<span>'+participants[j].name+'</span>';
+            html += '<span class="name-participant">'+participants[j].name+'</span>';
+            html += '</span>';
+            html += '<a onclick="showDialog('+j+')" class="mdl-list__item-secondary-action accordion-item dialog-button'+j+'"><i class="material-icons">info</i></a>';
             html += '</div>';
+            html += '<dialog id="dialog'+j+'" class="mdl-dialog">';
+            html += '<h3 class="mdl-dialog__title">'+participants[j].name+'</h3>';
+            html += '<div class="mdl-dialog__content">';
+            html += ''+participants[j].email+'<br/>';
+            html += ''+participants[j].language+'<br/>';
+            html += '</div>';
+            html += '<div class="mdl-dialog__actions">';
+            html += '<button type="button" class="mdl-button">Close</button>';
+            html += '</div>';
+            html += '</dialog>';
           }
-          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="eventMap" style="margin-bottom:20%;">';
+          html += '</div>';
+          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone event-map" id="eventMap">';
           html += '</div>';
           html += '</div>';
           var latitude = events[i].latitude;
@@ -215,7 +256,7 @@
       }
       
       $("[data-route='event'] .mdl-grid").html(html);
-      displayEventMap(latitude, longitude);
+      app.displayEventMap(latitude, longitude, "getEvent");
     });
   }
 
@@ -235,7 +276,7 @@
     el.addEventListener('click', goToEvent);
   });
     
-  function displayEventMap(latitude, longitude) {
+  app.displayEventMap = function(latitude, longitude, from) {
       var latlng = new google.maps.LatLng(latitude, longitude);
       
       var options = {
@@ -244,8 +285,12 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
       };
 
-      
-      var eventMap = new google.maps.Map(document.getElementById("eventMap"), options);
+      if(from == "getEvent") {
+        var eventMap = new google.maps.Map(document.getElementById("eventMap"), options);
+      } else {
+        var eventMap = new google.maps.Map(document.getElementById("eventMapForm"), options);
+        document.getElementById("eventMapForm").removeAttribute("hidden");
+      }
       
       var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(latitude, longitude),
@@ -296,3 +341,16 @@
 	}
 
 })();
+
+function showDialog(id) {
+  var dialogButton = document.querySelector('.dialog-button'+id);
+  var dialog = document.querySelector('#dialog'+id);
+  if (! dialog.showModal) {
+    dialogPolyfill.registerDialog(dialog);
+  }
+  dialog.showModal();
+  dialog.querySelector('button:not([disabled])')
+  .addEventListener('click', function() {
+    dialog.close();
+  });
+}

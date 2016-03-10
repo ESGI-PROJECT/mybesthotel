@@ -66,7 +66,7 @@ a.event-div{
   color: #FFF;
   background-size: cover;  
   background-repeat: no-repeat;
-    background-position: 50% 50%;
+  background-position: 50% 50%;
   cursor: pointer;
 }
 
@@ -114,4 +114,130 @@ a.event-div{
   line-height: 40px;
   vertical-align: text-bottom;
   color: #010101;
+}
+
+/* ==========  Select Field ========== */
+
+/* Style Select Field */
+select {
+  font-family: inherit;
+  background-color: transparent;
+  width: 300px;
+  padding: 4px 0;
+  font-size: 16px;
+  color: rgba(0,0,0, 0.26);
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0, 0.12);
+}
+
+/* Remove focus */
+select:focus {
+  outline: none}
+
+/* Hide label */
+.mdl-selectfield label {display: none;}
+/* Use custom arrow */
+.mdl-selectfield select {appearance: none}
+.mdl-selectfield {
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  position: relative;
+    &:after {
+        position: absolute;
+        top: 0.75em;
+        right: 0.5em;
+        /* Styling the down arrow */
+        width: 0;
+        height: 0;
+        padding: 0;
+        content: '';
+        border-left: .25em solid transparent;
+        border-right: .25em solid transparent;
+        border-top: .375em solid rgba(0,0,0, 0.12);
+        pointer-events: none;
+    }
+}
+
+form {
+  margin-left: 10px;
+}
+
+input[type=date] {
+  color: rgba(0,0,0, 0.26);
+}
+
+.mdl-datefield label {
+  width: 95px;
+  color: rgba(0,0,0, 0.26);
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.map-form {
+  width: calc(100% - 90px) !important;
+}
+
+/***********************************************************/
+
+.name-participant {
+    position:relative;
+    left:10px;
+}
+
+.accordion-item {
+    float:right;
+}
+
+.event-map {
+    margin-bottom:20%;
+    width: 100%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.mdl-dialog {
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+  width: 280px; }
+.mdl-dialog__title {
+  padding: 24px 24px 0;
+  margin: 0;
+  font-size: 2.5rem; }
+.mdl-dialog__actions {
+  padding: 8px 8px 8px 24px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; 
+}
+.mdl-dialog__actions > * {
+  margin-right: 8px;
+  height: 36px; 
+}
+.mdl-dialog__actions > *:first-child {
+  margin-right: 0; 
+}
+.mdl-dialog__actions--full-width {
+  padding: 0 0 8px 0; 
+}
+.mdl-dialog__actions--full-width > * {
+  height: 48px;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  padding-right: 16px;
+  margin-right: 0;
+  text-align: right; 
+}
+.mdl-dialog__content {
+  padding: 20px 24px 24px 24px;
+  color: rgba(0,0,0, 0.54);
+  display: inline-block;
 }
