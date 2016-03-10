@@ -90,9 +90,21 @@
   });
 
   var chatForm = document.querySelector("#chat-form");
+  console.log(chatForm);
   chatForm.addEventListener('submit', function (e) {
   	e.preventDefault();
-  	// app.sendMessage();
+  	var messageValue = document.querySelector('#chat-input').value;
+		var messageDate = new Date().getTime();
+
+  	var messageContext = {};
+
+  	messageContext.userId 	= app.userId;
+  	// Fixme : change the user name
+  	messageContext.userName	= 'Plopman';
+  	messageContext.message 	= messageValue;
+  	messageContext.date 		= messageDate;
+
+  	app.sendMessage(messageContext);
   });
 
   /**********************************************************************
@@ -265,6 +277,23 @@
     });
   }
 
+  app.writeMessage = function (data) {
+  	var html = '';
+		html += '<div class="direct-chat-msg">';
+		html += '<div class="direct-chat-info clearfix">';
+		html += '<span class="direct-chat-name pull-left">'+""+'</span>';
+		// Default position
+		html += '<span class="direct-chat-timestamp pull-right">'+""+'</span>';
+		html += '</div>';
+		html += '<img class="direct-chat-img" src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b12d72da.png" alt="message user image">';
+		html += '<div class="direct-chat-text">';
+		html += // message;
+		html += '</div>';
+		html += '</div>';
+
+		$('.direct-chat-messages').append(html);
+  }
+
   app.saveEvent = function () {
     app.pathJson = "../data/events2.json";
   }
@@ -303,6 +332,11 @@
 		  });
   }
 
+  app.getNewMessage = function (message) {
+  	console.log(message);
+		app.writeMessage(message);
+  }
+
   /**********************************************************************
    *
    * Methods for dealing with the web socket
@@ -310,20 +344,24 @@
    **********************************************************************/
 
    app.openConnection = function (event, room) {
-   	if (!app.socket) {
+   	var socketNamespace = 'socket-' + event + '-' + room;
+   	if (!app.socket || socketNamespace != app.socket.socketNamespace) {
 
    		app.userId = new Date().getTime();
 
-			var serverUrl = window.location.origin + "?category=jazzParty&eventId=1&userId=" + app.userId;
+			var serverUrl = window.location.origin + "?category="+event+"&eventId="+room+"&userId=" + app.userId;
 			$.ajax({
 				url: serverUrl
 			})
 			.done(function(data) {
 			  console.log('success');
-	   		app.socket = io('/' + event.category + '-' + room);
+			  console.log(event + '-' + room);
+	   		var namespaceName = event + '-' + room;
 
-			 app.socket.on('new message', function(msg){
-			    console.info(msg);
+	   		app.socket = io('/' + namespaceName);
+	   		app.socket.socketNamespace = 'socket-' + namespaceName;
+			 	app.socket.on('new message', function(msg){
+			    app.getNewMessage(msg);
 			    // Action to do when receiving a new message
 			  });
 			})
@@ -333,13 +371,14 @@
    	}
    	return app.socket;
    }
-   app.sendMessage = function (e) {
-		socket.emit('new message', "message");
+   app.sendMessage = function (contesxt) {
+		app.socket.emit('new message', contesxt);
    }
 
 	app.getMessage = function (e) {
     socket.on('new message', function (data) {
      console.log(data);
+     // app.writeMessage(data);
     });
 	}
 
