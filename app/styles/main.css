@@ -116,7 +116,7 @@ a.event-div{
   color: #010101;
 }
 
-/* ==========  Select Field ========== */
+/* ==========  Formulaire ========== */
 
 /* Style Select Field */
 select {
@@ -245,4 +245,23 @@ body {
 .no-event {
   width: 100%;
   margin: 10px;
+}
+
+.mdl-grid .mdl-4-btn {
+    width: calc(33.3333333333% - 16px);
+    text-align: center;
+}
+
+.mdl-grid .mdl-4-btn i {
+    font-size: 3em;
+    color: #D1D1D1;
+}
+
+.mdl-grid .mdl-4-btn p {
+    width: 60%;
+    font-size: 13px;
+}
+
+.button-pressed p{
+  background: #ff4081;
 }
