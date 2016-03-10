@@ -115,3 +115,12 @@ a.event-div{
   vertical-align: text-bottom;
   color: #010101;
 }
+
+.name-participant {
+    position:relative;
+    left:10px;
+}
+
+.accordion-item {
+    float:right;
+}
