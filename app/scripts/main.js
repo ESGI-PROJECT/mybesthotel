@@ -224,6 +224,8 @@
           html += 'Date de fin: '+events[i].endDate+'</br>';
           html += 'Lieu: '+events[i].lieu;
           html += '</div>';
+          html += '<div class="event-icons"><img width="30px" src="images/logo.svg"></div>';
+          html += '<div class="mdl-grid"><div id="yesButton" class="mdl-cell mdl-cell--4-col mdl-4-btn"><i class="material-icons">check_circle</i><p>J\'y vais</p></div><div id="maybeButton" class="mdl-cell mdl-cell--4-col mdl-4-btn"><i class="material-icons">offline_pin</i><p>Peut-être</p></div><div id="noButton" class="mdl-cell mdl-cell--4-col mdl-4-btn"><i class="material-icons">cancel</i><p>Je ne participe pas</p></div></div>';
           html += '<div class="event-icons"><a class="chat-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="/event/'+ events[i].category +'/' + events[i].id +'/chat">Chat <img width="30px" src="images/logo.svg"></a></div>';
           html += '<div class="mdl-card__actions mdl-card--border">';
           html += '<a class="mdl-button mdl-button--colored mdl-js-ripple-effect">';
@@ -267,7 +269,11 @@
         }
       }
       
-      $("[data-route='event'] .mdl-grid").html(html);
+      $("[data-route='event'] .mdl-grid").html(html).promise().done(function(){
+        $(".mdl-4-btn").click(function(e) {
+           app.toggleButtons(e.currentTarget.id);
+        });
+      });;
       app.displayEventMap(latitude, longitude, "getEvent");
 
 		  // var showModalButton = document.querySelector('.chat-button');
@@ -298,12 +304,29 @@
     app.pathJson = "../data/events2.json";
   }
 
+  app.toggleButtons = function (id) {
+    var yesButton = $("#yesButton");
+    var maybeButton = $("#maybeButton");
+    var noButton = $("#noButton");
+    if (id == "yesButton") {
+      yesButton.toggleClass("button-pressed", true);
+      maybeButton.toggleClass("button-pressed", false);
+      noButton.toggleClass("button-pressed", false);
+    } else if (id == "maybeButton") {
+      yesButton.toggleClass("button-pressed", false);
+      maybeButton.toggleClass("button-pressed", true);
+      noButton.toggleClass("button-pressed", false);
+    } else if (id == "noButton") {
+      yesButton.toggleClass("button-pressed", false);
+      maybeButton.toggleClass("button-pressed", false);
+      noButton.toggleClass("button-pressed", true);
+    }
+  }
+
   var els = document.getElementsByClassName('event-div');
 
   var goToEvent = function() {
     var ev_id = this.getAttribute('data-id');
-    // console.log(ev_id);
-    // alert(ev_id);
   }
 
   Array.prototype.forEach.call(els, function(el, i){
