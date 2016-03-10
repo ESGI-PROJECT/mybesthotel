@@ -157,8 +157,10 @@
     $.getJSON(app.pathJson, function(data){
       var events = data.events;
       var html = '';
+      var eventPresence = false;
       for(var i = 0 ; i < Object.keys(events).length; i++) {
         if(events[i].category == category){
+          eventPresence = true;
           html += '<a href="/event/' + category + '/' + events[i].id + '" class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="background-image: url('+ events[i].photo +');">';
           html += '<p><i class="material-icons">bookmark_border</i> '+ events[i].category_name +' </p>';
           html += '<h4>'+ events[i].name +'</h4>';
@@ -171,6 +173,15 @@
           html += '</div>';
           html += '</div>';
         }
+      }
+      if(eventPresence == false) {
+        html += '<div class="demo-card-wide mdl-card mdl-shadow--2dp no-event">';
+        html += '<div class="mdl-card__actions mdl-card--border">';
+        html += '<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">';
+        html += 'Pas d\'évènement prévu pour le moment.';
+        html += '</a>';
+        html += '</div>';
+        html += '</div>';
       }
       $("[data-route='categoryEvent'] .mdl-grid").html(html);
     });
