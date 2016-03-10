@@ -211,8 +211,18 @@
             html += '<i class="material-icons mdl-list__item-avatar">person</i>';
             html += '<span class="name-participant">'+participants[j].name+'</span>';
             html += '</span>';
-            html += '<a class="mdl-list__item-secondary-action accordion-item" href="#"><i class="material-icons">info</i></a>';
+            html += '<a onclick="showDialog('+j+')" class="mdl-list__item-secondary-action accordion-item dialog-button'+j+'"><i class="material-icons">info</i></a>';
             html += '</div>';
+            html += '<dialog id="dialog'+j+'" class="mdl-dialog">';
+            html += '<h3 class="mdl-dialog__title">'+participants[j].name+'</h3>';
+            html += '<div class="mdl-dialog__content">';
+            html += ''+participants[j].email+'<br/>';
+            html += ''+participants[j].language+'<br/>';
+            html += '</div>';
+            html += '<div class="mdl-dialog__actions">';
+            html += '<button type="button" class="mdl-button">Close</button>';
+            html += '</div>';
+            html += '</dialog>';
           }
           html += '</div>';
           html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone event-map" id="eventMap">';
@@ -267,3 +277,16 @@
   }
 
 })();
+
+function showDialog(id) {
+  var dialogButton = document.querySelector('.dialog-button'+id);
+  var dialog = document.querySelector('#dialog'+id);
+  if (! dialog.showModal) {
+    dialogPolyfill.registerDialog(dialog);
+  }
+  dialog.showModal();
+  dialog.querySelector('button:not([disabled])')
+  .addEventListener('click', function() {
+    dialog.close();
+  });
+}
