@@ -169,3 +169,8 @@ form {
 .accordion-item {
     float:right;
 }
+
+.event-map {
+    margin-bottom:20%;
+    width: 100%;
+}

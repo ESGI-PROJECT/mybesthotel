@@ -183,11 +183,11 @@
             html += '<i class="material-icons mdl-list__item-avatar">person</i>';
             html += '<span class="name-participant">'+participants[j].name+'</span>';
             html += '</span>';
-            html += '<a class="mdl-list__item-secondary-action accordion-item" href="#"><i class="material-icons">add</i></a>';
+            html += '<a class="mdl-list__item-secondary-action accordion-item" href="#"><i class="material-icons">info</i></a>';
             html += '</div>';
           }
           html += '</div>';
-          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="eventMap" style="margin-bottom:20%;">';
+          html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone event-map" id="eventMap">';
           html += '</div>';
           html += '</div>';
           var latitude = events[i].latitude;
