@@ -43,6 +43,7 @@
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="scripts/jquery-ui-1.11.4.custom/jquery-ui.min.css">
     
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
   </head>
@@ -108,7 +109,7 @@
               <form>
                 <div class="mdl-textfield mdl-js-textfield">
                   <input class="mdl-textfield__input" type="text" name="name">
-                  <label class="mdl-textfield__label" for="name">Nom: </label>
+                  <label class="mdl-textfield__label" for="name">Nom de l'évènement </label>
                 </div>
                 <div class="mdl-selectfield">
                   <label class="mdl-textfield__label" for="category">Catégorie: </label>
@@ -124,21 +125,26 @@
                 </div>
                 <div class="mdl-textfield mdl-js-textfield">
                   <textarea class="mdl-textfield__input" name="description"></textarea>
-                  <label class="mdl-textfield__label" for="description">Description: </label>
+                  <label class="mdl-textfield__label" for="description">Description de l'évènement </label>
                 </div>
-                <!-- <input type="date" name="startDate">
-                <label class="mdl-textfield__label" for="startDate">Date début: </label>
-                <input type="date" name="endDate">
-                <label class="mdl-textfield__label" for="endDate">Date fin: </label> -->
+                <div class="mdl-datefield">
+                  <label for="startDate">Date début : </label>
+                  <input type="date" name="startDate">
+                </div>
+                <div class="mdl-datefield">
+                  <label for="endDate">Date fin : </label>
+                  <input type="date" name="endDate">
+                </div>
                 <div class="mdl-textfield mdl-js-textfield">
-                  <input class="mdl-textfield__input" type="text" name="lieu">
-                  <label class="mdl-textfield__label" for="lieu">Lieu: </label>
+                  <input class="mdl-textfield__input" id="tags" type="text" name="lieu">
+                  <label class="mdl-textfield__label" for="lieu">Lieu de l'évènement </label>
+                </div>
+                <div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="eventMapForm" hidden>
                 </div>
                 <a href="/event/meeting/3">
                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                     Ajouter évènement
                   </button> 
-                  <!-- <input type='button' name='event' value='Enregistrer'> -->
                 </a>
                 </div>
               </form>
@@ -164,6 +170,7 @@
     <!-- build:js(app/) ../../scripts/main.min.js -->
     <script src="scripts/main.js"></script>
     <script src="scripts/router.js"></script>
+    <script src="scripts/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>

@@ -118,6 +118,34 @@
    	}
    }
 
+   $(function() {
+    var availableTags = [
+      {
+        value: "DisneyLand",
+        latitude: 48.872211,
+        longitude: 2.775801, 
+      },
+      {
+        value: "Macumba",
+        latitude: 48.864731,
+        longitude: 2.381944, 
+      }
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags,
+      focus: function( event, ui ) {
+        $( "#tags" ).val( ui.item.value );
+        return false;
+      },
+      select: function( event, ui ) {
+        $( "#tags" ).val( ui.item.value );
+        console.log('select');
+        app.displayEventMap(ui.item.latitude, ui.item.longitude, "createEvent");
+        return false;
+      }
+    });
+  });
+
 
   /**********************************************************************
    *
@@ -196,7 +224,7 @@
       }
       
       $("[data-route='event'] .mdl-grid").html(html);
-      displayEventMap(latitude, longitude);
+      app.displayEventMap(latitude, longitude, "getEvent");
     });
   }
 
@@ -216,7 +244,7 @@
     el.addEventListener('click', goToEvent);
   });
     
-  function displayEventMap(latitude, longitude) {
+  app.displayEventMap = function(latitude, longitude, from) {
       var latlng = new google.maps.LatLng(latitude, longitude);
       
       var options = {
@@ -225,8 +253,12 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
       };
 
-      
-      var eventMap = new google.maps.Map(document.getElementById("eventMap"), options);
+      if(from == "getEvent") {
+        var eventMap = new google.maps.Map(document.getElementById("eventMap"), options);
+      } else {
+        var eventMap = new google.maps.Map(document.getElementById("eventMapForm"), options);
+        document.getElementById("eventMapForm").removeAttribute("hidden");
+      }
       
       var marker = new google.maps.Marker({
 		position: new google.maps.LatLng(latitude, longitude),

@@ -161,6 +161,19 @@ form {
   margin-left: 10px;
 }
 
+input[type=date] {
+  color: rgba(0,0,0, 0.26);
+}
+
+.mdl-datefield label {
+  width: 95px;
+  color: rgba(0,0,0, 0.26);
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+/***********************************************************/
+
 .name-participant {
     position:relative;
     left:10px;
