@@ -175,15 +175,18 @@
           html += 'Participants';
           html += '</a>';
           html += '</div>';
-
+          html += '<div class="mdl-list">';
           var participants = events[i].participants;
           for(var j = 0 ; j < Object.keys(participants).length; j++) {
-            html += '<div class="mdl-card__actions mdl-card--border">';
+            html += '<div class="mdl-list__item">';
             html += '<span class="mdl-list__item-primary-content">';
             html += '<i class="material-icons mdl-list__item-avatar">person</i>';
-            html += '<span>'+participants[j].name+'</span>';
+            html += '<span class="name-participant">'+participants[j].name+'</span>';
+            html += '</span>';
+            html += '<a class="mdl-list__item-secondary-action accordion-item" href="#"><i class="material-icons">add</i></a>';
             html += '</div>';
           }
+          html += '</div>';
           html += '<div class="event-list-item mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="eventMap" style="margin-bottom:20%;">';
           html += '</div>';
           html += '</div>';

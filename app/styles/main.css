@@ -160,3 +160,12 @@ select:focus {
 form {
   margin-left: 10px;
 }
+
+.name-participant {
+    position:relative;
+    left:10px;
+}
+
+.accordion-item {
+    float:right;
+}
