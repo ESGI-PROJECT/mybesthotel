@@ -32,7 +32,7 @@
 
     page('/event/:category', function(data) {
       app.route = 'categoryEvent';
-      app.params = {};
+      app.params = data.params;
       event.detail['backLink'] = "/events";
       app.getEvents(data.params.category);
       document.dispatchEvent(event);
@@ -40,7 +40,7 @@
 
     page('/event/:category/:id', function(data) {
       app.route = 'event';
-      app.params = {};
+      app.params = data.params;
       event.detail['backLink'] = "/event/" + data.params.category;
       app.getEvent(data.params.id);
       document.dispatchEvent(event);
@@ -50,6 +50,14 @@
       app.route = 'formEvent';
       app.params = {};
       // event.detail['backLink'] = "/events";
+      document.dispatchEvent(event);
+    });
+
+    page('/chat', function(data) {
+      app.route = 'chat';
+      app.params = {};
+      // event.detail['backLink'] = "/event/" + data.params.category;
+      // app.getEvent(data.params.id);
       document.dispatchEvent(event);
     });
 

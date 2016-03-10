@@ -89,6 +89,28 @@
     app.saveEvent();
   });
 
+  // Chat dialog box
+
+  // FIXME : To listen what page model is ready 
+  // var dialog = document.querySelector('dialog');
+  // var showModalButton = document.querySelector('.show-modal');
+  // if (! dialog.showModal) {
+  //   dialogPolyfill.registerDialog(dialog);
+  // }
+  // showModalButton.addEventListener('click', function() {
+  //   app.openConnection(app.params, '1');
+  //   // dialog.showModal();
+  // });
+  // dialog.querySelector('.close').addEventListener('click', function() {
+  //   dialog.close();
+  // });
+
+  // var chatForm = document.querySelector("#chatRoom");
+  // chatForm.addEventListener('submit', function (e) {
+  // 	e.preventDefault();
+  // 	// app.sendMessage();
+  // });
+
   /**********************************************************************
    *
    * Methods to update/refresh the UI
@@ -226,9 +248,51 @@
       var eventMap = new google.maps.Map(document.getElementById("eventMap"), options);
       
       var marker = new google.maps.Marker({
-		position: new google.maps.LatLng(latitude, longitude),
-		map: eventMap
-	  });
+				position: new google.maps.LatLng(latitude, longitude),
+				map: eventMap
+		  });
   }
+
+  /**********************************************************************
+   *
+   * Methods for dealing with the web socket
+   *
+   **********************************************************************/
+
+   // var socket = io();
+
+   app.openConnection = function (event, room) {
+   	if (!app.socket) {
+
+   		app.userId = new Date().getTime();
+
+			var serverUrl = window.location.origin + "?category=jazzParty&eventId=1&userId=" + app.userId;
+			$.ajax({
+				url: serverUrl
+			})
+			.done(function(data) {
+			  console.log('success');
+	   		app.socket = io('/' + event.category + '-' + room);
+
+			 app.socket.on('new message', function(msg){
+			    console.info(msg);
+			    // Action to do when receiving a new message
+			  });
+			})
+			.fail(function() {
+			  console.error("error");
+			})
+   	}
+   	return app.socket;
+   }
+   app.sendMessage = function (e) {
+		socket.emit('new message', "message");
+   }
+
+	app.getMessage = function (e) {
+    socket.on('new message', function (data) {
+     console.log(data);
+    });
+	}
 
 })();
