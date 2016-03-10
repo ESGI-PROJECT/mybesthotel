@@ -89,27 +89,11 @@
     app.saveEvent();
   });
 
-  // Chat dialog box
-
-  // FIXME : To listen what page model is ready 
-  // var dialog = document.querySelector('dialog');
-  // var showModalButton = document.querySelector('.show-modal');
-  // if (! dialog.showModal) {
-  //   dialogPolyfill.registerDialog(dialog);
-  // }
-  // showModalButton.addEventListener('click', function() {
-  //   app.openConnection(app.params, '1');
-  //   // dialog.showModal();
-  // });
-  // dialog.querySelector('.close').addEventListener('click', function() {
-  //   dialog.close();
-  // });
-
-  // var chatForm = document.querySelector("#chatRoom");
-  // chatForm.addEventListener('submit', function (e) {
-  // 	e.preventDefault();
-  // 	// app.sendMessage();
-  // });
+  var chatForm = document.querySelector("#chat-form");
+  chatForm.addEventListener('submit', function (e) {
+  	e.preventDefault();
+  	// app.sendMessage();
+  });
 
   /**********************************************************************
    *
@@ -120,6 +104,11 @@
    app.pageChange = function (route, detail) {
    	$('.page').prop('hidden', true);
    	$('[data-route='+route+']').prop('hidden', false);
+
+   	$('#fabButton').prop('hidden', false);
+   	if (app.params.hideFab) {
+   		$('#fabButton').prop('hidden', true);
+   	}
 
    	// Replace menu button by return button
    	if (route != app.mainPage) {
@@ -223,7 +212,7 @@
           html += 'Date de fin: '+events[i].endDate+'</br>';
           html += 'Lieu: '+events[i].lieu;
           html += '</div>';
-          html += '<div class="event-icons"><img width="30px" src="images/logo.svg"></div>';
+          html += '<div class="event-icons"><a class="chat-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="/event/'+ events[i].category +'/' + events[i].id +'/chat">Chat <img width="30px" src="images/logo.svg"></a></div>';
           html += '<div class="mdl-card__actions mdl-card--border">';
           html += '<a class="mdl-button mdl-button--colored mdl-js-ripple-effect">';
           html += 'Description de l\'événement';
@@ -268,6 +257,11 @@
       
       $("[data-route='event'] .mdl-grid").html(html);
       app.displayEventMap(latitude, longitude, "getEvent");
+
+		  // var showModalButton = document.querySelector('.chat-button');
+		  // var dialog = document.querySelector('.chat-box');
+
+		  // app.ListenDialogButton(showModalButton, dialog);
     });
   }
 
@@ -315,8 +309,6 @@
    *
    **********************************************************************/
 
-   // var socket = io();
-
    app.openConnection = function (event, room) {
    	if (!app.socket) {
 
@@ -352,16 +344,3 @@
 	}
 
 })();
-
-function showDialog(id) {
-  var dialogButton = document.querySelector('.dialog-button'+id);
-  var dialog = document.querySelector('#dialog'+id);
-  if (! dialog.showModal) {
-    dialogPolyfill.registerDialog(dialog);
-  }
-  dialog.showModal();
-  dialog.querySelector('button:not([disabled])')
-  .addEventListener('click', function() {
-    dialog.close();
-  });
-}
