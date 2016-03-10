@@ -225,7 +225,7 @@
           html += 'Lieu: '+events[i].lieu;
           html += '</div>';
           html += '<div class="event-icons"><img width="30px" src="images/logo.svg"></div>';
-          html += '<div class="mdl-grid"><div id="yesButton" class="mdl-cell mdl-cell--4-col mdl-4-btn"><i class="material-icons">check_circle</i><p>J\'y vais</p></div><div id="maybeButton" class="mdl-cell mdl-cell--4-col mdl-4-btn"><i class="material-icons">offline_pin</i><p>Peut-être</p></div><div id="noButton" class="mdl-cell mdl-cell--4-col mdl-4-btn"><i class="material-icons">cancel</i><p>Je ne participe pas</p></div></div>';
+          html += '<div class="mdl-grid"><div id="yesButton" class="mdl-cell mdl-cell--4-col mdl-4-btn"><i class="material-icons">check_circle</i><p>J\'y vais</p></div><div id="maybeButton" class="mdl-cell mdl-cell--4-col mdl-4-btn"><i class="material-icons">offline_pin</i><p>Peut-être</p></div><div id="noButton" class="mdl-cell mdl-cell--4-col mdl-4-btn"><i class="material-icons">cancel</i><p>Ignorer</p></div></div>';
           html += '<div class="event-icons"><a class="chat-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="/event/'+ events[i].category +'/' + events[i].id +'/chat">Chat <img width="30px" src="images/logo.svg"></a></div>';
           html += '<div class="mdl-card__actions mdl-card--border">';
           html += '<a class="mdl-button mdl-button--colored mdl-js-ripple-effect">';
