@@ -145,9 +145,6 @@
 		  		window.page.redirect('/');
 		  	}
 		  });
-   	} else {
-   		$('header .mdl-layout__drawer-button').prop('hidden', false);
-   		$('.back-arrow').remove();
    	}
    }
 
@@ -446,3 +443,15 @@
 	}
 
 })();
+
+function showDialog(id) {
+	var dialogButton = document.querySelector('.dialog-button'+id);
+	var dialog = document.querySelector('#dialog'+id);
+	if (! dialog.showModal) {
+	  dialogPolyfill.registerDialog(dialog);
+	}
+	dialog.showModal();
+	dialog.querySelector('button:not([disabled])').addEventListener('click', function() {
+   dialog.close();
+	});
+}

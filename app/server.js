@@ -8,6 +8,9 @@ app.use("/images", express.static(__dirname + '/images'));
 app.use("/data", express.static(__dirname + '/data'));
 app.use("/vendor", express.static(__dirname + '/vendor'));
 
+app.use("/css", express.static(__dirname + '/shell/css'));
+app.use("/img", express.static(__dirname + '/shell/img'));
+
 var io = require('socket.io')(http);
 
 var namespaceName 					= null,
@@ -16,6 +19,10 @@ var namespaceName 					= null,
 		connectionRegistered 		= false,
 		connectionNamespace,
 		connectionNamespaceList = {};
+
+app.get('/shell', function(req, res) {
+	res.sendFile(__dirname + '/shell/index.html');
+});
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
