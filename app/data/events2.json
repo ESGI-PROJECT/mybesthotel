@@ -73,5 +73,74 @@
             "photoUrl": "",
             "language": "Allemand"            
         }]
+    }, {
+        "id": 4,
+        "name": "LE SHOWCASE",
+        "category": "nightClub",
+        "category_name" : "Night Club",
+        "description": "Presque toutes les nuits, cette gigantesque boîte de nuit (plus de 1800 mètres carrés ! ) dans Paris IntraMuros distille une programmation éclectique et élégante. Ils invitent ainsi l'espace d'une nuit les plus grands DJs du moment à mixer sur la scène et envoûter une foule d'oiseaux de nuits et d'habitués. Le Showcase peut aussi se privatiser, ou accueillir certains shows de la Fashion Week tout comme son jeune voisin Le Faust.",
+        "startDate": "17/03/2016 23:00",
+        "endDate": "18/03/2016 05:00",
+        "lieu": "Le Showcase",
+        "latitude": 48.8643159, 
+        "longitude": 2.3140424,
+        "photo": "http://www.soiree31decembre.fr/images/upload/photos/2010/11/09/799bad5a3b514f096e69bbc4a7896cd92124151572.jpg",
+        "participants": [{
+            "name": "Pierre Cabart",
+            "email": "pierre.cabart@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        },{
+            "name": "Shuxin Han",
+            "email": "shuxin.han@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        }]
+    }, {
+        "id": 5,
+        "name": "Epicure",
+        "category": "meals",
+        "category_name" : "Meals",
+        "description": "Le Chef Eric Frechon à la tête du restaurant triplement étoilé Epicure du Bristol Paris vous propose une cuisine gastronomique dans un cadre grand luxe.",
+        "startDate": "19/03/2016 19:00",
+        "endDate": "19/03/2016 22:00",
+        "lieu": "Epicure",
+        "latitude": 48.8716963, 
+        "longitude": 2.3146595,
+        "photo": "http://i.dailymail.co.uk/i/pix/2014/11/10/1415620173395_wps_1_DE39GE_The_interior_view_.jpg",
+        "participants": [{
+            "name": "Pierre Cabart",
+            "email": "pierre.cabart@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        },{
+            "name": "Shuxin Han",
+            "email": "shuxin.han@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        }]
+    }, {
+        "id": 6,
+        "name": "Paris Jazz Club",
+        "category": "jazzClub",
+        "category_name" : "Jazz Club",
+        "description": "L'association PARIS JAZZ CLUB a pour but de promouvoir, célébrer et démocratiser le jazz sous toutes ses formes à travers les lieux de jazz de Paris et sa Région. Paris est une ville jazz active. Elle est aujourd'hui considérée comme la seconde capitale mondiale du jazz après New York.PARIS JAZZ CLUB a donc pour mission de promouvoir le patrimoine du Jazz en Ile de France et enrichir sa créativité.",
+        "startDate": "19/03/2016 19:00",
+        "endDate": "19/03/2016 22:00",
+        "lieu": "Carré Belle Feuille",
+        "latitude": 48.8716963, 
+        "longitude": 2.3146595,
+        "photo": "http://www.barsandnightclubs.com.au/assets/images/content/club/melbourne//Paris%20Cat%20Jazz%20Club%20-%20Melbourne%20CBD/Paris%20Cat%20Jazz%20Club%20-%20Melbourne%20CBD%20-%20Melbourne%20-%20Photo01.jpg",
+        "participants": [{
+            "name": "Pierre Cabart",
+            "email": "pierre.cabart@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        },{
+            "name": "Shuxin Han",
+            "email": "shuxin.han@gmail.com",
+            "photoUrl": "",
+            "language": "Français"            
+        }]
     }]
 }
