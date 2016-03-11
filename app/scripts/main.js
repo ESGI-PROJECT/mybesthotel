@@ -160,6 +160,11 @@
         value: "Macumba",
         latitude: 48.864731,
         longitude: 2.381944, 
+      },
+      {
+        value: "Tour Eiffel",
+        latitude: 48.8582606,
+        longitude: 2.2945071, 
       }
     ];
     $( "#tags" ).autocomplete({
