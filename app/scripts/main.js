@@ -70,7 +70,8 @@
   var app = window.app;
   		app.version = "0.0.1";
   		app.mainPage = "events";
-      app.pathJson = "../data/events.json";
+      app.pathJson = "../data/events.json",
+      app.msgBoxHeight = "";
 
   /**********************************************************************
    *
@@ -317,8 +318,10 @@
 		html += data.data.message;
 		html += '</div>';
 		html += '</div>';
-
+		
 		$('.direct-chat-messages').append(html);
+		app.msgBoxHeight += parseInt($('.direct-chat-messages').height());
+		$('.direct-chat-messages').animate({scrollTop: app.msgBoxHeight});
   }
 
   app.saveEvent = function () {
