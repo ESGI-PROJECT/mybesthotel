@@ -11,8 +11,11 @@ app.use("/vendor", express.static(__dirname + '/vendor'));
 var io = require('socket.io')(http);
 
 var namespaceName 					= null,
+		numUsers								= 0,
+
 		connectionRegistered 		= false,
-		disconnectionRegistered = false;
+		connectionNamespace,
+		connectionNamespaceList = {};
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
@@ -22,7 +25,9 @@ app.get('/', function(req, res) {
 		console.log(namespaceName);
 
 		nsp = io.of('/' + namespaceName);
-		if (!connectionRegistered) {
+		if (!connectionRegistered || (connectionNamespace != namespaceName && !connectionNamespaceList[namespaceName])) {
+			console.log('Register : ' + namespaceName);
+			var numUsers = 0;
 			nsp.on('connection', function(socket) {
 				if (req) {
 				  console.log(req.query.userId + ' connected');
@@ -32,27 +37,29 @@ app.get('/', function(req, res) {
 				    	data: data
 				    });
 				  });
+
+				  numUsers++;
+
+			    nsp.emit('user join', {
+			    	numUsers: numUsers
+			    });
+
+					socket.on('disconnect', function () {
+						console.log('disconnect');
+					  if (numUsers > 0) {
+					    --numUsers;
+					    socket.broadcast.emit('user left', {
+					      numUsers: numUsers
+					    });
+					  }
+					});
 				}
 				connectionRegistered = true;
+				connectionNamespace = namespaceName;
+				connectionNamespaceList[namespaceName] = true;
 			});
 		}
-
-		if (!disconnectionRegistered) {
-			// when the user disconnects.. perform this
-			nsp.on('disconnect', function () {
-			  // if (addedUser) {
-			  //   --numUsers;
-
-			    // echo globally that this client has left
-			    socket.broadcast.emit('user left', {
-			      // username: socket.username,
-			      // numUsers: numUsers
-			    });
-			  // }
-			  disconnectionRegistered = true;
-			});
-		}
-  }
+	}
 });
 
 

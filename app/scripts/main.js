@@ -105,6 +105,7 @@
   	messageContext.date 		= messageDate;
 
   	app.sendMessage(messageContext);
+  	app.writeMessage({data: messageContext}, true);
   });
 
   /**********************************************************************
@@ -120,6 +121,15 @@
    	$('#fabButton').prop('hidden', false);
    	if (app.params.hideFab) {
    		$('#fabButton').prop('hidden', true);
+   	} else {
+   		$('.direct-chat-messages').html('');
+   		app.updateNumber({numUsers: 1});
+   		if (app.socket) {
+   			console.log('left');
+   			app.socket.emit('disconnect', 'true');
+   			app.socket.disconnect();
+   			app.socket = null;
+   		}
    	}
 
    	// Replace menu button by return button
@@ -283,17 +293,31 @@
     });
   }
 
-  app.writeMessage = function (data) {
+  app.writeMessage = function (data, sender) {
+  	name = sender?'Vous':data.data.userName;
+
+		var messageValue = document.querySelector('#chat-input').value = ""
+
+  	sender = sender?'right':'left';
+  	var month = ['Janv', 'Févr', 'Mars', 'Avr', 'Mai', 'Juin', 'Juill', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'];
+  	var msgDate = new Date(data.data.date);
+  	var msgDay = (msgDate.getDate() < 10)? "0" + msgDate.getDate():msgDate.getDate();
+		var msgMonth = month[msgDate.getMonth()];
+		var msgHour = (msgDate.getHours() < 10)? "0" + msgDate.getHours():msgDate.getHours();
+		var msgMin = (msgDate.getMinutes() < 10)? "0" + msgDate.getMinutes():msgDate.getMinutes();
+
+		var date = msgDay+' '+msgMonth+' '+msgHour+':'+msgMin;
+
   	var html = '';
-		html += '<div class="direct-chat-msg">';
+		html += '<div class="direct-chat-msg '+sender+'">';
 		html += '<div class="direct-chat-info clearfix">';
-		html += '<span class="direct-chat-name pull-left">'+""+'</span>';
+		html += '<span class="direct-chat-name pull-'+sender+'">'+name+'</span>';
 		// Default position
-		html += '<span class="direct-chat-timestamp pull-right">'+""+'</span>';
+		html += '<span class="direct-chat-timestamp pull-right">'+date+'</span>';
 		html += '</div>';
 		html += '<img class="direct-chat-img" src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b12d72da.png" alt="message user image">';
 		html += '<div class="direct-chat-text">';
-		html += // message;
+		html += data.data.message;
 		html += '</div>';
 		html += '</div>';
 
@@ -360,6 +384,11 @@
 		app.writeMessage(message);
   }
 
+  app.updateNumber = function (number) {
+  	console.log(number);
+  	$('#chat-count-user').html(number.numUsers);
+  }
+
   /**********************************************************************
    *
    * Methods for dealing with the web socket
@@ -383,9 +412,20 @@
 
 	   		app.socket = io('/' + namespaceName);
 	   		app.socket.socketNamespace = 'socket-' + namespaceName;
+
 			 	app.socket.on('new message', function(msg){
 			    app.getNewMessage(msg);
 			    // Action to do when receiving a new message
+			  });
+
+				app.socket.on('user join', function(data){
+					console.log('user join');
+					app.updateNumber(data);
+			  });
+
+			  app.socket.on('user left', function(data){
+			    console.log('user left');
+			    app.updateNumber(data);
 			  });
 			})
 			.fail(function() {
