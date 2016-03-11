@@ -1,0 +1,65 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url('http://www.hotel-opera-diamond.com/wp-content/uploads/sites/8/2014/08/hotel-2.jpg');
+}
+
+.navbar-default {
+    background-color: #013E88;
+    border-radius: 0;
+    border: 0;
+}
+
+.navbar-default span {
+    color: #fff;
+    font-size: 2.3em;
+}
+
+.navbar-default input {
+    border-radius: 0;
+}
+
+.navbar-default.navbar-margin {
+    margin-top: 50px;
+}
+
+.navbar > .container-fluid .navbar-brand {
+    padding: 9px 15px;
+}
+
+.navbar > .container-fluid .navbar-text {
+    color: #fff;
+}
+
+.input-navbar {
+    padding: 0 5px;
+}
+
+.buttom-menu {
+    width: 100%;
+    height: 140px;
+    position: fixed;
+    bottom: 0px;
+    background: #FFFFFF;
+    border-top: 1px solid #D1D1D1;
+}
+
+.buttom-menu .col-xs-3 {
+    padding: 5px;
+    text-align: center;
+    height: 70px;
+}
+
+.buttom-menu .col-xs-3 p {
+    font-size: 10px;
+    color: #013E88;
+}
+
+.buttom-menu .col-xs-3 p.active { 
+    color: #C20052;
+}
+
+.carousel {
+    position: fixed;
+    bottom: 150px;
+}
